@@ -25,7 +25,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #9efb61;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +35,38 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.navbar{
+  margin:0px auto;
+  background-color: hsl(157, 96%, 68%);
+  left:0;
+  right:0;
+  padding:0;
+  margin-bottom: 40px;
+}
+.navbar .navbar-nav .nav-link {
+  font-size: 1.2em;
+}
+.navbar .navbar-nav .nav-link:hover {
+color: #fff;
+}
+.card{
+  width: 18rem;
+}
+.card .card-link{
+   float: right;
+   padding: 5px;
+}
+.addMargin{
+  margin: 50px;
+}
+.addPad{
+  display: inline-block;
+  text-align: left;
+  padding: 10px;
+}
+.addPadLogo{
+  display: inline-block;;
+  padding: 10px;
 }
