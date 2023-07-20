@@ -70,3 +70,6 @@ color: #fff;
   display: inline-block;;
   padding: 10px;
 }
+.errors{
+  color:red;
+}

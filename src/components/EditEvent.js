@@ -1,23 +1,16 @@
 import EventModel from './/EventModel';
-import {useState} from 'react';
 
-function Example(props) {
+function EditEvent(props) {
+  console.log(props.event)
   const handleClose = () => props.setShowModel(false);
-  const [event,setEvent] = useState({
-    eventName: '',
-    eventAuther: '',
-    phone: '',
-    date: '',
-    message: ''
-  });
   const formHandler = (e) =>{
-    console.log("hello" + e.target.name + " " +e.target.value);
-    setEvent({...event,[e.target.name]:e.target.value});
+    var event = props.event
+    props.setEvent({...event,[e.target.name]:e.target.value});
   }
   async function formSubmit(){
-    console.log(event)
-    let result =  await fetch(process.env.REACT_APP_API_ENDPOINT + 'events/add-event',{
-        method: 'post',
+    const event = props.event
+    let result =  await fetch(process.env.REACT_APP_API_ENDPOINT + 'events/'+ event._id ,{
+        method: 'put',
         body: JSON.stringify(event),
         headers: {
             'content-type': 'application/json',
@@ -29,13 +22,12 @@ function Example(props) {
     alert('event created!');
     handleClose()
   }
-  console.log(props.showModel);
   return (
     <>
     <EventModel
     showModel={(props.showModel)}
     handleClose={handleClose}
-    event={event}
+    event={props.event}
     formHandler={formHandler}
     formSubmit={formSubmit}
     />
@@ -43,4 +35,4 @@ function Example(props) {
   );
 }
 
-export default Example;
+export default EditEvent;
